@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_call"
+        android:icon="@drawable/filter"
+        android:title="장소검색" />
+    <item
+        android:id="@+id/action_text"
+        android:icon="@drawable/location"
+        android:title="필터검색"
+        ></item>
+</menu>

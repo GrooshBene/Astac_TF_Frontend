@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="300dp"
+    android:layout_height="350dp"
+    android:background="@drawable/drawer_background"
+    android:layout_gravity="center"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_height="270dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="asdf"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24dp"
+            android:id="@+id/mTitleTextView"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:src="@drawable/chocolate_cake"
+            android:id="@+id/mImageView"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="asdfasdfasdfadsfadsfadsfadsfadasdfasdfasdfadsfadsfadsfadsfadasdfasdfasdfadsfadsfadsfadsfadasdfasdfasdfadsfadsfadsfadsfad"
+            android:gravity="center"
+            android:textColor="#282727"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="italic"
+            android:id="@+id/mContentTextView"/>
+    </LinearLayout>
+
+
+</LinearLayout>
