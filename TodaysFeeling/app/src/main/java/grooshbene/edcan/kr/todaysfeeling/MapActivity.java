@@ -1,23 +1,18 @@
 package grooshbene.edcan.kr.todaysfeeling;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenu;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -176,7 +171,7 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        Intent intent = new Intent(MapActivity.this, MapDialog.class);
+        Intent intent = new Intent(MapActivity.this, PlaceInfoActivity.class);
         String title = marker.getTitle().toString();
         String snippet = marker.getSnippet().toString();
         intent.putExtra("title", title);

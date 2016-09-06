@@ -13,16 +13,18 @@
         <activity android:name=".MapActivity">
 
         </activity>
-        <activity android:name=".MapDialog"
-            android:theme="@style/Base.Theme.AppCompat.Dialog">
-
-        </activity>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".PlaceInfoActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+
+        <activity android:name=".SplashActivity">
+
         </activity>
 
     </application>
