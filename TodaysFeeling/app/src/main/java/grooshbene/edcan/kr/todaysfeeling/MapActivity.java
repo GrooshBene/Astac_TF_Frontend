@@ -58,6 +58,10 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         mFabSpeedDial.setMenuListener(this);
     }
 
+
+
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         LatLng spot1 = new LatLng(37.5009040,127.0257580);
