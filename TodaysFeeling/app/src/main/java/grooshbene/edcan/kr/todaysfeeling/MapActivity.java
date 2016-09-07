@@ -76,77 +76,8 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         LatLng spot10 = new LatLng(37.4985675, 127.0280457);
         LatLng spot11 = new LatLng(37.4972993, 127.0297194);
 
+        addMarker("카페베네 강남대로점", "서울특별시 서초구 강남대로 429", spot1);
 
-        MarkerOptions m1 = new MarkerOptions()
-                .title("카페베네 강남대로점")
-                .snippet("서울특별시 서초구 강남대로 429 ")
-                .position(spot1)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_common_s));
-
-        MarkerOptions m2 = new MarkerOptions()
-                .title("카페베네 강남역 A타워점")
-                .snippet("서울특별시 강남구 테헤란로 105")
-                .position(spot2)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_business_s));
-
-        MarkerOptions m3 = new MarkerOptions()
-                .title("카페베네 강남역점")
-                .snippet("서울특별시 서초구 서초대로77길 3 아라타워 2층")
-                .position(spot3)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_lover_s));
-
-        MarkerOptions m4 = new MarkerOptions()
-                .title("스타벅스 테헤란로점")
-                .snippet("서울특별시 역삼동 서초 삼성타운")
-                .position(spot4)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_common_s));
-
-        MarkerOptions m5 = new MarkerOptions()
-                .title("스타벅스 강남대로점")
-                .snippet("서울특별시 서초구 강남대로 212")
-                .position(spot5)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_family_s));
-
-        MarkerOptions m6 = new MarkerOptions()
-                .title("커피빈 강남역점")
-                .snippet("서울특별시 역삼동 서초 삼성타운")
-                .position(spot6)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_business_s));
-        MarkerOptions m7 = new MarkerOptions()
-                .title("파리바게트 강남역점")
-                .snippet("서울특별시 서초구 서초대로64길 32")
-                .position(spot7).icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_friends_s));
-        MarkerOptions m8 = new MarkerOptions()
-                .title("윙스터디 강남점")
-                .snippet("서울특별시 서초구 강남대로 129")
-                .position(spot8)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_friends_s));
-        MarkerOptions m9 = new MarkerOptions()
-                .title("파리바게트 강남대로점")
-                .snippet("서울특별시 역삼동 서초 삼성타운")
-                .position(spot9)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_lover_s));
-        MarkerOptions m10 = new MarkerOptions()
-                .title("강남역 카페도서관")
-                .snippet("서울특별시 서초구 강남대로 21")
-                .position(spot10)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_family_s));
-        MarkerOptions m11 = new MarkerOptions()
-                .title("강남역 윙스터디 2호점")
-                .snippet("서울특별시 서초구 서초대로 21길 34")
-                .position(spot11)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_common_s));
-        markersArray.add(m1);
-        markersArray.add(m2);
-        markersArray.add(m3);
-        markersArray.add(m4);
-        markersArray.add(m5);
-        markersArray.add(m6);
-        markersArray.add(m7);
-        markersArray.add(m8);
-        markersArray.add(m9);
-        markersArray.add(m10);
-        markersArray.add(m11);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}, 100);
@@ -214,5 +145,9 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
     public void onMenuClosed() {
         mFabBackground.setBackgroundColor(Color.argb(00, 00, 00, 00));
 //        mFabBackground.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out));
+    }
+
+    public void addMarker(String title, String address, LatLng mLatLng){
+        markersArray.add(new MarkerOptions().title(title).snippet(address).position(mLatLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_common_s)));
     }
 }
