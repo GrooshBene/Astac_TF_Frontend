@@ -1,10 +1,13 @@
 package grooshbene.edcan.kr.todaysfeeling;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenu;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBarActivity;
@@ -25,6 +28,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 
@@ -42,9 +46,9 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        mToolbar = (Toolbar)findViewById(R.id.mToolbar);
-        mFabBackground = (LinearLayout)findViewById(R.id.fab_background);
-        mFabSpeedDial = (FabSpeedDial)findViewById(R.id.mFabSpeedDial);
+        mToolbar = (Toolbar) findViewById(R.id.mToolbar);
+        mFabBackground = (LinearLayout) findViewById(R.id.fab_background);
+        mFabSpeedDial = (FabSpeedDial) findViewById(R.id.mFabSpeedDial);
         setSupportActionBar(mToolbar);
 
         MapFragment mapFragment = (MapFragment) getFragmentManager()
@@ -54,14 +58,12 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
     }
 
 
-
-
-
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LatLng spot1 = new LatLng(37.5009040,127.0257580);
+        LatLng spot1 = new LatLng(37.5009040, 127.0257580);
         //127.0257580&y=37.5009040
-        LatLng spot2 = new LatLng(37.4986671,127.0285215);
+        LatLng spot2 = new LatLng(37.4986671, 127.0285215);
         //127.0285215&y=37.4986671
         LatLng spot3 = new LatLng(37.497929, 127.0265303);
         //x=127.0265303&y=37.4979429
@@ -74,13 +76,14 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         LatLng spot10 = new LatLng(37.4985675, 127.0280457);
         LatLng spot11 = new LatLng(37.4972993, 127.0297194);
 
-        MarkerOptions m1=new MarkerOptions()
+
+        MarkerOptions m1 = new MarkerOptions()
                 .title("카페베네 강남대로점")
                 .snippet("서울특별시 서초구 강남대로 429 ")
                 .position(spot1)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_common_s));
 
-        MarkerOptions m2=new MarkerOptions()
+        MarkerOptions m2 = new MarkerOptions()
                 .title("카페베네 강남역 A타워점")
                 .snippet("서울특별시 강남구 테헤란로 105")
                 .position(spot2)
@@ -133,7 +136,7 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
                 .snippet("서울특별시 서초구 서초대로 21길 34")
                 .position(spot11)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_common_s));
-       markersArray.add(m1);
+        markersArray.add(m1);
         markersArray.add(m2);
         markersArray.add(m3);
         markersArray.add(m4);
@@ -146,27 +149,31 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         markersArray.add(m11);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}, 100);
+        }
+
+        else {
+
+            googleMap.setMyLocationEnabled(true);
+            for (int i = 0; i < markersArray.size(); i++) {
+                googleMap.addMarker(markersArray.get(i));
+                Log.e("asdf", markersArray.get(i).getPosition().toString());
+            }
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(spot10, 14));
+            googleMap.setOnMarkerClickListener(this);
             return;
         }
-        googleMap.setMyLocationEnabled(true);
-        for (int i=0; i<markersArray.size(); i++){
-            googleMap.addMarker(markersArray.get(i));
-            Log.e("asdf", markersArray.get(i).getPosition().toString());
-        }
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(spot10, 14));
-        googleMap.setOnMarkerClickListener(this);
 
     }
 
     protected Marker createMarker(GoogleMap googleMap, LatLng latLng, String title, String snippet){
 
         return googleMap.addMarker(new MarkerOptions().position(latLng).title(title).snippet(snippet));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
@@ -178,6 +185,15 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         intent.putExtra("snippet", snippet);
         startActivity(intent);
         return false;
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    @Override
+    public int checkPermission(String permission, int pid, int uid) {
+        if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED || checkSelfPermission(Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED){
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}, 100);
+        }
+        return super.checkPermission(permission, pid, uid);
     }
 
     @Override
