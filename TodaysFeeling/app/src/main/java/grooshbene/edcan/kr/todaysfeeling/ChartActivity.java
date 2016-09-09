@@ -20,12 +20,13 @@ import java.util.ArrayList;
  * Created by GrooshBene on 2016. 9. 7..
  */
 public class ChartActivity extends Activity {
-
     PieChart mChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
+
         mChart = (PieChart) findViewById(R.id.mPieChart);
         mChart.setUsePercentValues(true);
         mChart.setDescription("");

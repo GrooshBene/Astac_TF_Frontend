@@ -31,8 +31,11 @@ public class SplashActivity extends Activity {
     TextView mTitleView;
     LoginButton mFbLogin;
     CallbackManager manager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
@@ -40,8 +43,8 @@ public class SplashActivity extends Activity {
         mFbLogin = (LoginButton) findViewById(R.id.mFbLogin);
         mLogo = (LinearLayout)findViewById(R.id.mLogo);
         mTitleView = (TextView)findViewById(R.id.mTitleView);
+
         hd = new Handler();
-//        mIntentHd = new Handler();
         hd.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -50,6 +53,8 @@ public class SplashActivity extends Activity {
                 mFbLogin.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_fade_in));
             }
         }, 1500);
+
+
         mFbLogin.setReadPermissions("email", "user_about_me", "user_friends");
         LoginManager.getInstance().registerCallback(manager, new FacebookCallback<LoginResult>() {
             @Override
@@ -70,17 +75,6 @@ public class SplashActivity extends Activity {
                 Log.e("fbError", error.getMessage());
             }
         });
-//        mIntentHd.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent intent = new Intent(SplashActivity.this, MapActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        }, 4500);
-
-
-
     }
 
     @Override
