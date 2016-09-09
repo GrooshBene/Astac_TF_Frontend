@@ -99,7 +99,7 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
                 googleMap.addMarker(markersArray.get(i));
                 Log.e("asdf", markersArray.get(i).getPosition().toString());
             }
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(spot10, 14));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(spot10, 17));
             googleMap.setOnMarkerClickListener(this);
             return;
         }
