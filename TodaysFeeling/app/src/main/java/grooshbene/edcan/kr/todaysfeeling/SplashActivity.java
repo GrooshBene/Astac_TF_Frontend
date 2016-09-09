@@ -49,7 +49,7 @@ public class SplashActivity extends Activity {
             }
         }, 1500);
         mFbLogin.setReadPermissions("email", "user_about_me", "user_friends");
-        mFbLogin.registerCallback(manager, new FacebookCallback<LoginResult>() {
+        LoginManager.getInstance().registerCallback(manager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.e("Facebook Login Result", String.valueOf(loginResult));
