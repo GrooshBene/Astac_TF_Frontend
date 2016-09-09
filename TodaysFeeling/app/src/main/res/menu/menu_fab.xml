@@ -2,12 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_call"
-        android:icon="@drawable/filter"
-        android:title="장소검색" />
+        android:id="@+id/filter_light"
+        android:icon="@drawable/light"
+        android:title="조명 필터" />
     <item
-        android:id="@+id/action_text"
-        android:icon="@drawable/location"
-        android:title="필터검색"
+        android:id="@+id/filter_noise"
+        android:icon="@drawable/noise"
+        android:title="소음 필터"
         ></item>
+    <item
+        android:id="@+id/filter_temp"
+        android:icon="@drawable/temperature"
+        android:title="온도 필터"
+        />
+
+    <item
+        android:id="@+id/filter_people"
+        android:icon="@drawable/people"
+        android:title="일행 필터"
+        />
 </menu>

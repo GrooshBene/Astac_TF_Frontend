@@ -148,6 +148,6 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
     }
 
     public void addMarker(String title, String address, LatLng mLatLng){
-        markersArray.add(new MarkerOptions().title(title).snippet(address).position(mLatLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.mk_common_s)));
+        markersArray.add(new MarkerOptions().title(title).snippet(address).position(mLatLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.normal1)));
     }
 }

@@ -28,7 +28,7 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
         mCollapsingToolbar = (CollapsingToolbarLayout)findViewById(R.id.collapsing_toolbar);
         mToolbar = (Toolbar)findViewById(R.id.mToolbar);
         mImageView = (ImageView)findViewById(R.id.image);
-        mImageView.setImageResource(R.drawable.chocolate_cake);
+        mImageView.setImageResource(R.drawable.eydia_image);
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

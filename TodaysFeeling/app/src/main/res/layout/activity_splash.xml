@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    android:gravity="center">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-    <ImageView
-        android:id="@+id/mLogo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_main"/>
-    <!--<TextView-->
-        <!--android:visibility="gone"-->
-        <!--android:layout_marginTop="-25dp"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="오늘의 분위기"-->
-        <!--android:textSize="30dp"-->
-        <!--android:fontFamily="sans-serif-condensed"-->
-        <!--android:id="@+id/mTitleView"-->
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical">
 
-        <!--android:textColor="@color/colorPrimary"/>-->
-        </LinearLayout>
-        <com.facebook.login.widget.LoginButton
-            android:visibility="gone"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back_text"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/mLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mFbLogin"/>
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/icon" />
+
+            <TextView
+                android:layout_marginTop="12dp"
+                android:id="@+id/mTitleView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="오늘의 분위기"
+                android:textColor="#fff"
+                android:textSize="23dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <com.facebook.login.widget.LoginButton
+            android:layout_marginTop="40dp"
+            android:id="@+id/mFbLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </LinearLayout>
+
 
 </LinearLayout>

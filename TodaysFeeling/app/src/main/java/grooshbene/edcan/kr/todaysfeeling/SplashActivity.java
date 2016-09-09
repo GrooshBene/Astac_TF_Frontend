@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ import com.facebook.login.widget.LoginButton;
  */
 public class SplashActivity extends Activity {
     Handler hd, mIntentHd;
-    ImageView mLogo;
+    LinearLayout mLogo;
     TextView mTitleView;
     LoginButton mFbLogin;
     CallbackManager manager;
@@ -37,13 +38,14 @@ public class SplashActivity extends Activity {
 
         manager = CallbackManager.Factory.create();
         mFbLogin = (LoginButton) findViewById(R.id.mFbLogin);
-        mLogo = (ImageView)findViewById(R.id.mLogo);
-//        mTitleView = (TextView)findViewById(R.id.mTitleView);
+        mLogo = (LinearLayout)findViewById(R.id.mLogo);
+        mTitleView = (TextView)findViewById(R.id.mTitleView);
         hd = new Handler();
 //        mIntentHd = new Handler();
         hd.postDelayed(new Runnable() {
             @Override
             public void run() {
+                mLogo.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide));
                 mFbLogin.setVisibility(View.VISIBLE);
                 mFbLogin.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_fade_in));
             }
