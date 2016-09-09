@@ -33,7 +33,7 @@ public class ChartActivity extends Activity {
         mChart.setDragDecelerationFrictionCoef(0.95f);
 
         mChart.setDrawHoleEnabled(true);
-        mChart.setHoleColor(Color.WHITE);
+        mChart.setHoleColor(Color.argb(00,00,00,00));
 
         mChart.setTransparentCircleColor(Color.WHITE);
         mChart.setTransparentCircleAlpha(110);
@@ -51,7 +51,6 @@ public class ChartActivity extends Activity {
         setData(4, 100);
 
         mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-        // mChart.spin(2000, 0, 360);
 
         Legend l = mChart.getLegend();
         l.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);

@@ -15,17 +15,22 @@
         android:layout_height="300dp"
         android:layout_gravity="center"
         android:src="@drawable/ic_main"/>
-    <TextView
-        android:visibility="gone"
-        android:layout_marginTop="-25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="오늘의 분위기"
-        android:textSize="30dp"
-        android:fontFamily="sans-serif-condensed"
-        android:id="@+id/mTitleView"
+    <!--<TextView-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_marginTop="-25dp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="오늘의 분위기"-->
+        <!--android:textSize="30dp"-->
+        <!--android:fontFamily="sans-serif-condensed"-->
+        <!--android:id="@+id/mTitleView"-->
 
-        android:textColor="@color/colorPrimary"/>
+        <!--android:textColor="@color/colorPrimary"/>-->
         </LinearLayout>
+        <com.facebook.login.widget.LoginButton
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mFbLogin"/>
 
 </LinearLayout>
