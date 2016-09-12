@@ -28,7 +28,6 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_placeinfo);
-        mListHeader = getLayoutInflater().inflate(R.layout.place_listview_header, null, false);
         mCollapsingToolbar = (CollapsingToolbarLayout)findViewById(R.id.collapsing_toolbar);
         mToolbar = (Toolbar)findViewById(R.id.mToolbar);
         mListView = (ListView)findViewById(R.id.mListView);
@@ -40,7 +39,6 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         mCollapsingToolbar.setTitle("스타벅스 신논현점");
         mCollapsingToolbar.setExpandedTitleColor(getResources().getColor(android.R.color.white));
-        mListView.addHeaderView(mListHeader);
 
         mToolbar.setNavigationOnClickListener(this);
 
