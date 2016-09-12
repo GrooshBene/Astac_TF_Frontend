@@ -87,6 +87,8 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         addMarker("강남역 카페도서관", "서울특별시 서초구 강남대로 21", spot10, R.drawable.normal1);
         addMarker("강남역 윙스터디 2호점", "서울특별시 서초구 서초대로 21길 34", spot11, R.drawable.friend4);
 
+        //Android M Permission Request
+
         if (Build.VERSION.SDK_INT >= 23 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}, 100);
