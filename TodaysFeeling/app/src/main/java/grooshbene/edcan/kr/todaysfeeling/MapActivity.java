@@ -72,7 +72,7 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         LatLng spot6 = new LatLng(37.4996571, 127.0271552);
         LatLng spot7 = new LatLng(37.4964140, 127.0279598);
         LatLng spot8 = new LatLng(37.4996741, 127.0280135);
-        LatLng spot9 = new LatLng(27.4977844, 127.0286143);
+        LatLng spot9 = new LatLng(37.4977844, 127.0286143);
         LatLng spot10 = new LatLng(37.4985675, 127.0280457);
         LatLng spot11 = new LatLng(37.4972993, 127.0297194);
         addMarker("카페베네 강남대로점", "서울특별시 서초구 강남대로 429", spot1, R.drawable.love3);
