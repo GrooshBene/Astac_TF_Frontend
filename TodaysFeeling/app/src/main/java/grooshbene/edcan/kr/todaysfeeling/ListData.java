@@ -1,20 +1,5 @@
 package grooshbene.edcan.kr.todaysfeeling;
 
-<<<<<<< HEAD
-/**
- * Created by JunseokOh on 2016. 9. 19..
- */
-public class ListData {
-    private String title;
-
-    public ListData(String title) {
-        this.title = title;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-=======
 import android.content.Context;
 
 /**
@@ -44,5 +29,4 @@ public class ListData {
     }
 
     public int getSpCnt(){return spCnt;}
->>>>>>> 27f53437a92234d4092ce747df9114c4460f6b1d
 }
