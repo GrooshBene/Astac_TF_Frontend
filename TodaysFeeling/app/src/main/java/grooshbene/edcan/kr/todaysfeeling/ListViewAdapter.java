@@ -27,7 +27,7 @@ public class ListViewAdapter extends ArrayAdapter<ListData> {
         ListData data = arrayList.get(position);
         View view = inflater.inflate(R.layout.custom_layout, null);
         TextView textView = (TextView) view.findViewById(R.id.textView);
-        textView.setText(data.getTitle());
+        textView.setText(data.getPhone());
         return view;
     }
 }

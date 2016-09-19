@@ -11,7 +11,7 @@ public class ListData {
     public String phone;
     public int spCnt;
 
-    public ListData(Context context, String phone_) {
+    public ListData(String phone_) {
         phone = phone_;
     }
 
