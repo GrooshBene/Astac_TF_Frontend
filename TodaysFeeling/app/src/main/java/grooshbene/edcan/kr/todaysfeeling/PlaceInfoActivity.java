@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,22 +25,25 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
     ImageView mImageView;
     Toolbar mToolbar;
     ListView mListView;
+    LayoutInflater mInflater;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_placeinfo);
+        mInflater = getLayoutInflater();
         mCollapsingToolbar = (CollapsingToolbarLayout)findViewById(R.id.collapsing_toolbar);
         mToolbar = (Toolbar)findViewById(R.id.mToolbar);
         mListView = (ListView)findViewById(R.id.mListView);
         mImageView = (ImageView)findViewById(R.id.image);
         mImageView.setImageResource(R.drawable.eydia_image);
+        ViewGroup header = (ViewGroup)mInflater.inflate(R.layout.place_listview_header, mListView, false);
         setSupportActionBar(mToolbar);
+//        mListView.addHeaderView(header);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         mCollapsingToolbar.setTitle("스타벅스 신논현점");
         mCollapsingToolbar.setExpandedTitleColor(getResources().getColor(android.R.color.white));
-        mListView.addHeaderView(getLayoutInflater().inflate(R.layout.place_listview_header, null, false));
 
         mToolbar.setNavigationOnClickListener(this);
 
