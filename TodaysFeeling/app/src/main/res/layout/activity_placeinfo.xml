@@ -58,7 +58,6 @@
             android:id="@+id/mListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#fff"
             android:scrollbars="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:listheader="@layout/place_listview_header">
