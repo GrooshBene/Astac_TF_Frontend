@@ -54,6 +54,7 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         mFabBackground = (LinearLayout) findViewById(R.id.fab_background);
         mFabSpeedDial = (FabSpeedDial) findViewById(R.id.mFabSpeedDial);
         setSupportActionBar(mToolbar);
+        mToolbar.setTitleTextColor(Color.rgb(250,250,250));
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
