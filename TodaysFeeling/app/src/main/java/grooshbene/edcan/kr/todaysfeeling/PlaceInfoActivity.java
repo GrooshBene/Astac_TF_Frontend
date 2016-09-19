@@ -3,6 +3,7 @@ package grooshbene.edcan.kr.todaysfeeling;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -11,7 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,6 +33,8 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
     Toolbar mToolbar;
     ListView mListView;
     LayoutInflater mInflater;
+    ArrayAdapter<String> mAdapter;
+    ArrayList<String> arrList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +58,11 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
         mListView.setAdapter(new ListViewAdapter(getApplicationContext(), arrayList));
         mListView.addHeaderView(header);
 
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         mCollapsingToolbar.setTitle("스타벅스 신논현점");
         mCollapsingToolbar.setExpandedTitleColor(getResources().getColor(android.R.color.white));
         mToolbar.setNavigationOnClickListener(this);
-
     }
 
     @Override

@@ -28,7 +28,6 @@
 
             <TextView
                 android:layout_marginTop="12dp"
-                android:id="@+id/mTitleView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -37,6 +36,7 @@
                 android:textSize="23dp"
                 android:layout_gravity="center"/>
         </LinearLayout>
+
         <com.facebook.login.widget.LoginButton
             android:layout_marginTop="40dp"
             android:id="@+id/mFbLogin"

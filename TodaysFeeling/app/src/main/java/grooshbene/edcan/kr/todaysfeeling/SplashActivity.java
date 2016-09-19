@@ -28,7 +28,6 @@ import com.facebook.login.widget.LoginButton;
 public class SplashActivity extends Activity {
     Handler hd, mIntentHd;
     LinearLayout mLogo;
-    TextView mTitleView;
     LoginButton mFbLogin;
     CallbackManager manager;
 
@@ -42,7 +41,6 @@ public class SplashActivity extends Activity {
         manager = CallbackManager.Factory.create();
         mFbLogin = (LoginButton) findViewById(R.id.mFbLogin);
         mLogo = (LinearLayout)findViewById(R.id.mLogo);
-        mTitleView = (TextView)findViewById(R.id.mTitleView);
 
         hd = new Handler();
         hd.postDelayed(new Runnable() {
