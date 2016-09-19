@@ -15,11 +15,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by bene on 2016. 6. 21..
  */
 public class PlaceInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
+    ArrayList<ListData> arrayList;
     CollapsingToolbarLayout mCollapsingToolbar;
     FragmentManager.OnBackStackChangedListener mBackStackListener;
     ImageView mImageView;
@@ -30,24 +34,31 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_placeinfo);
+        setDefault();
+    }
+
+    private void setDefault() {
         mInflater = getLayoutInflater();
         mCollapsingToolbar = (CollapsingToolbarLayout)findViewById(R.id.collapsing_toolbar);
         mToolbar = (Toolbar)findViewById(R.id.mToolbar);
         mListView = (ListView)findViewById(R.id.mListView);
         mImageView = (ImageView)findViewById(R.id.image);
         mImageView.setImageResource(R.drawable.eydia_image);
-        ViewGroup header = (ViewGroup)mInflater.inflate(R.layout.place_listview_header, mListView, false);
         setSupportActionBar(mToolbar);
-//        mListView.addHeaderView(header);
+        ArrayList<ListData> arrayList = new ArrayList<>();
+        arrayList.add(new ListData("wow"));
+        arrayList.add(new ListData("wow"));
+        arrayList.add(new ListData("wow"));
+        View header = mInflater.inflate(R.layout.place_listview_header, mListView, false);
+        mListView.setAdapter(new ListViewAdapter(getApplicationContext(), arrayList));
+        mListView.addHeaderView(header);
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         mCollapsingToolbar.setTitle("스타벅스 신논현점");
         mCollapsingToolbar.setExpandedTitleColor(getResources().getColor(android.R.color.white));
-
         mToolbar.setNavigationOnClickListener(this);
-
-
 
     }
 

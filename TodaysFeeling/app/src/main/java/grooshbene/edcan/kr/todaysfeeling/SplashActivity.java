@@ -38,7 +38,7 @@ public class SplashActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        startActivity(new Intent(getApplicationContext(), PlaceInfoActivity.class));
         manager = CallbackManager.Factory.create();
         mFbLogin = (LoginButton) findViewById(R.id.mFbLogin);
         mLogo = (LinearLayout)findViewById(R.id.mLogo);
