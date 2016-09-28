@@ -1,8 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:background="#fff"
-    android:orientation="vertical">
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <LinearLayout
+        android:layout_width="10px"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="송원준"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1.5dp"
+                android:text="2016.09.23"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/color_little_star" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/color_little_star" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/color_little_star" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/white_little_star" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/white_little_star" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우 좋음. 커피도 맛있음"
+                android:textColor="#000"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

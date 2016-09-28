@@ -46,7 +46,6 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
         mInflater = getLayoutInflater();
         mCollapsingToolbar = (CollapsingToolbarLayout)findViewById(R.id.collapsing_toolbar);
         mToolbar = (Toolbar)findViewById(R.id.mToolbar);
-        mListView = (ListView)findViewById(R.id.mListView);
         mImageView = (ImageView)findViewById(R.id.image);
         mImageView.setImageResource(R.drawable.eydia_image);
         setSupportActionBar(mToolbar);
@@ -54,9 +53,6 @@ public class PlaceInfoActivity extends AppCompatActivity implements View.OnClick
         arrayList.add(new ListData("wow"));
         arrayList.add(new ListData("wow"));
         arrayList.add(new ListData("wow"));
-        View header = mInflater.inflate(R.layout.place_listview_header, mListView, false);
-        mListView.setAdapter(new ListViewAdapter(getApplicationContext(), arrayList));
-        mListView.addHeaderView(header);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

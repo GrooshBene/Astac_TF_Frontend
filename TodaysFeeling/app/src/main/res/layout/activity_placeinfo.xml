@@ -54,15 +54,344 @@
         android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ListView
-            android:id="@+id/mListView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:listheader="@layout/place_listview_header">
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
 
-        </ListView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <Space
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.25" />
+
+                    <LinearLayout
+                        android:layout_width="@dimen/keyline_1_minus_8dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:orientation="vertical"
+                        android:weightSum="10">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="0.7" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="5"
+                            android:src="@drawable/noise" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="0.7" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="소음"
+                            android:textColor="#80000000"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/mSilenceText"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="68.4dv"
+                            android:textColor="#80000000"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/keyline_1_minus_8dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:orientation="vertical"
+                        android:weightSum="10">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="0.7" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="5"
+                            android:src="@drawable/light" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="0.7" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="조명"
+                            android:textColor="#80000000"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/mBrightText"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="934.4lux"
+                            android:textColor="#80000000"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/keyline_1_minus_8dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:orientation="vertical"
+                        android:weightSum="10">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="0.7" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="5"
+                            android:src="@drawable/temperature" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="0.7" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="온도"
+                            android:textColor="#80000000"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/mTempText"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/keyline_1_minus_8dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="18°C"
+                            android:textColor="#80000000"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.25" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10px"
+                    android:layout_gravity="bottom"
+                    android:background="#000000"></LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="420dp"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:paddingTop="40dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Review"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="#E7E7E7"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/keyline_1_minus_8dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="박지수"
+                            android:textColor="#000"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/white_star"
+                            android:layout_marginRight="5dp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/white_star"
+                            android:layout_marginRight="5dp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/white_star"
+                            android:layout_marginRight="5dp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/white_star"
+                            android:layout_marginRight="5dp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/white_star" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="1000dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    xmlns:android="http://schemas.android.com/apk/res/android">
+
+                    <LinearLayout
+                        android:layout_width="10px"
+                        android:layout_height="100dp"
+                        android:background="@color/colorPrimaryDark" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:orientation="vertical"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="송원준"
+                                android:textColor="#000" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="1.5dp"
+                                android:text="2016.09.23"
+                                android:textSize="10dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/color_little_star" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:src="@drawable/color_little_star" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:src="@drawable/color_little_star" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:src="@drawable/white_little_star" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:src="@drawable/white_little_star" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="매우 좋음. 커피도 맛있음"
+                                android:textColor="#000"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
 
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
