@@ -2,8 +2,13 @@ package grooshbene.edcan.kr.todaysfeeling;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -11,6 +16,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenu;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.DrawableUtils;
 import android.support.v7.widget.Toolbar;
@@ -44,12 +51,14 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
     Toolbar mToolbar;
     LinearLayout mFabBackground;
     FabSpeedDial mFabSpeedDial;
+    BeaconService mBeaconService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        mBeaconService = new BeaconService();
         mToolbar = (Toolbar) findViewById(R.id.mToolbar);
         mFabBackground = (LinearLayout) findViewById(R.id.fab_background);
         mFabSpeedDial = (FabSpeedDial) findViewById(R.id.mFabSpeedDial);
@@ -59,6 +68,8 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         mFabSpeedDial.setMenuListener(this);
+        startService(new Intent("grooshbene.edcan.kr.todaysfeeling.service"));
+        makeNotification();
     }
 
 
@@ -161,5 +172,34 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
 
     public void addMarker(String title, String address, LatLng mLatLng, int icon){
         markersArray.add(new MarkerOptions().title(title).snippet(address).position(mLatLng).icon(BitmapDescriptorFactory.fromResource(icon)));
+    }
+
+    public void makeNotification(){
+        NotificationManager mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        Resources res = getResources();
+        NotificationCompat.Builder mNotiBuilder = new NotificationCompat.Builder(this)
+                .setContentTitle("오분 비콘 서비스")
+                .setContentText("비콘 감지 기능이 켜져있습니다.")
+                .setTicker("비콘 서비스 활성화")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setLargeIcon(BitmapFactory.decodeResource(res, R.mipmap.ic_launcher))
+                .setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_SOUND| Notification.DEFAULT_VIBRATE| Notification.DEFAULT_LIGHTS)
+                .setNumber(13);
+
+        Notification n = mNotiBuilder.build();
+        mNotificationManager.notify(1234, n);
+    }
+
+    public void destroyNotification(){
+        NotificationManager mNotificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.cancel(1234);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(new Intent("grooshbene.edcan.kr.todaysfeeling.service"));
+        destroyNotification();
     }
 }
