@@ -65,9 +65,9 @@ public class BeaconService extends Service implements BeaconConsumer{
                     for(Beacon beacon : collection){
                         beaconList.add(beacon);
                     }
+                    Intent intent = new Intent(getApplicationContext(), ReviewDialog.class);
+                    startActivity(intent);
                 }
-                Intent intent = new Intent(getApplicationContext(), ReviewDialog.class);
-                startActivity(intent);
             }
         });
 
